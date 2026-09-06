@@ -9,11 +9,36 @@ document.addEventListener("DOMContentLoaded", function () {
       return card ? card.offsetWidth + 24 : 320;
     };
 
+    let autoScrollInterval;
+    const startAutoScroll = () => {
+      autoScrollInterval = setInterval(() => {
+        // If we are near the end of the scroll, scroll back to the beginning
+        if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 10) {
+          slider.scrollTo({ left: 0, behavior: "smooth" });
+        } else {
+          slider.scrollBy({ left: getScrollAmount(), behavior: "smooth" });
+        }
+      }, 1500); // Scroll every 1.5 seconds
+    };
+
+    const stopAutoScroll = () => {
+      clearInterval(autoScrollInterval);
+    };
+
+    // Start auto scroll on load
+    startAutoScroll();
+
+    // Pause auto scroll when mouse enters the slider
+    slider.addEventListener("mouseenter", stopAutoScroll);
+    slider.addEventListener("mouseleave", startAutoScroll);
+
     nextBtn.addEventListener("click", () => {
       slider.scrollBy({
         left: getScrollAmount(),
         behavior: "smooth",
       });
+      stopAutoScroll();
+      startAutoScroll(); // Reset interval
     });
 
     prevBtn.addEventListener("click", () => {
@@ -21,6 +46,8 @@ document.addEventListener("DOMContentLoaded", function () {
         left: -getScrollAmount(),
         behavior: "smooth",
       });
+      stopAutoScroll();
+      startAutoScroll(); // Reset interval
     });
   }
 
