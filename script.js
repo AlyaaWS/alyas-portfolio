@@ -1,125 +1,125 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const slider = document.querySelector(".project-slider");
-  const prevBtn = document.querySelector(".prev-btn");
-  const nextBtn = document.querySelector(".next-btn");
-
-  if (slider && prevBtn && nextBtn) {
-    const getScrollAmount = () => {
-      const card = slider.querySelector(".project-card");
-      return card ? card.offsetWidth + 24 : 320;
-    };
-
-    let autoScrollInterval;
-    const startAutoScroll = () => {
-      autoScrollInterval = setInterval(() => {
-        // If we are near the end of the scroll, scroll back to the beginning
-        if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 10) {
-          slider.scrollTo({ left: 0, behavior: "smooth" });
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // 1. Sticky Navbar & Scroll Styling
+    const navbar = document.getElementById('navbar');
+    
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
         } else {
-          slider.scrollBy({ left: getScrollAmount(), behavior: "smooth" });
+            navbar.classList.remove('scrolled');
         }
-      }, 1500); // Scroll every 1.5 seconds
-    };
+        
+        // 2. Active Navigation Indicator
+        let current = '';
+        const sections = document.querySelectorAll('section, header');
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (scrollY >= (sectionTop - sectionHeight / 3)) {
+                current = section.getAttribute('id');
+            }
+        });
 
-    const stopAutoScroll = () => {
-      clearInterval(autoScrollInterval);
-    };
-
-    // Start auto scroll on load
-    startAutoScroll();
-
-    // Pause auto scroll when mouse enters the slider
-    slider.addEventListener("mouseenter", stopAutoScroll);
-    slider.addEventListener("mouseleave", startAutoScroll);
-
-    nextBtn.addEventListener("click", () => {
-      slider.scrollBy({
-        left: getScrollAmount(),
-        behavior: "smooth",
-      });
-      stopAutoScroll();
-      startAutoScroll(); // Reset interval
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${current}` && !link.classList.contains('nav-cta')) {
+                link.classList.add('active');
+            }
+        });
     });
 
-    prevBtn.addEventListener("click", () => {
-      slider.scrollBy({
-        left: -getScrollAmount(),
-        behavior: "smooth",
-      });
-      stopAutoScroll();
-      startAutoScroll(); // Reset interval
-    });
-  }
-
-  const profileBtn = document.getElementById("profileBtn");
-  const imgModal = document.getElementById("imgModal");
-  const modalImg = document.getElementById("modalImg");
-  const modalClose = document.querySelector(".img-modal-close");
-
-  if (profileBtn && imgModal) {
-    const openModal = () => {
-      imgModal.classList.add("open");
-      imgModal.setAttribute("aria-hidden", "false");
-      if (modalClose) modalClose.focus();
-    };
-
-    const closeModal = () => {
-      imgModal.classList.remove("open");
-      imgModal.setAttribute("aria-hidden", "true");
-      profileBtn.focus();
-    };
-
-    profileBtn.addEventListener("click", () => {
-      if (modalImg && profileBtn.querySelector("img")) {
-        modalImg.src = profileBtn.querySelector("img").src;
-      }
-      openModal();
-    });
-
-    modalClose && modalClose.addEventListener("click", closeModal);
-
-    imgModal.addEventListener("click", (e) => {
-      if (e.target === imgModal) closeModal();
-    });
-
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") closeModal();
-    });
-  }
-
-  // Mobile nav toggle
-  const navToggle = document.querySelector(".nav-toggle");
-  const navLinks = document.querySelector(".nav-links");
-
-  if (navToggle && navLinks) {
-    navToggle.addEventListener("click", () => {
-      const expanded = navToggle.getAttribute("aria-expanded") === "true";
-      navToggle.setAttribute("aria-expanded", String(!expanded));
-      navLinks.classList.toggle("open");
-    });
-
-    navLinks.querySelectorAll("a").forEach((a) => {
-      a.addEventListener("click", () => {
-        navLinks.classList.remove("open");
-        navToggle.setAttribute("aria-expanded", "false");
-      });
-    });
-  }
-
-  const backToTopBtn = document.getElementById("backToTop");
-
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 300) {
-      backToTopBtn.classList.add("show");
-    } else {
-      backToTopBtn.classList.remove("show");
+    // 3. Mobile Navigation Toggle
+    const navToggle = document.getElementById('navToggle');
+    const navLinksContainer = document.getElementById('navLinks');
+    
+    if (navToggle) {
+        navToggle.addEventListener('click', () => {
+            navLinksContainer.classList.toggle('active');
+        });
     }
-  });
 
-  backToTopBtn.addEventListener("click", () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
+    // Close mobile nav when clicking a link
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (navLinksContainer.classList.contains('active')) {
+                navLinksContainer.classList.remove('active');
+            }
+        });
     });
-  });
+
+    // 4. Reveal Animations on Scroll
+    const reveals = document.querySelectorAll('.reveal');
+
+    const revealOnScroll = () => {
+        const windowHeight = window.innerHeight;
+        const elementVisible = 100;
+
+        reveals.forEach(reveal => {
+            const elementTop = reveal.getBoundingClientRect().top;
+            if (elementTop < windowHeight - elementVisible) {
+                reveal.classList.add('active');
+            }
+        });
+    };
+
+    window.addEventListener('scroll', revealOnScroll);
+    // Trigger once on load
+    revealOnScroll();
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if(targetId === '#') return;
+            const targetElement = document.querySelector(targetId);
+            if(targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // 5. Auto-Scroll Projects Slider
+    const projectsGrid = document.querySelector('.projects-grid');
+    if (projectsGrid) {
+        let slideTimer;
+
+        const autoSlide = () => {
+            // Find the width of one card + gap (30px)
+            const firstCard = projectsGrid.querySelector('.project-card');
+            if (!firstCard) return;
+            const cardWidth = firstCard.offsetWidth + 30; 
+            const maxScroll = projectsGrid.scrollWidth - projectsGrid.clientWidth;
+
+            // Allow small margin of error for fractional pixels
+            if (projectsGrid.scrollLeft >= maxScroll - 10) {
+                // If at the end, smoothly scroll back to the first item
+                projectsGrid.scrollTo({ left: 0, behavior: 'smooth' });
+            } else {
+                // Otherwise scroll to the next item
+                projectsGrid.scrollBy({ left: cardWidth, behavior: 'smooth' });
+            }
+        };
+
+        // Start sliding every 2 seconds
+        slideTimer = setInterval(autoSlide, 2000);
+
+        // Pause sliding when user interacts (hover or touch)
+        projectsGrid.addEventListener('mouseenter', () => clearInterval(slideTimer));
+        projectsGrid.addEventListener('mouseleave', () => {
+            slideTimer = setInterval(autoSlide, 2000);
+        });
+        
+        projectsGrid.addEventListener('touchstart', () => clearInterval(slideTimer), {passive: true});
+        projectsGrid.addEventListener('touchend', () => {
+            slideTimer = setInterval(autoSlide, 2000);
+        }, {passive: true});
+    }
 });

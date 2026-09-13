@@ -1,342 +1,1291 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio | Web Developer</title>
+    <title>Alya | Full Stack Web Developer</title>
+
+    <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <nav class="navbar">
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
         <div class="container nav-container">
-            <a href="#" class="logo">Alya's<span>Portfolio.</span></a>
-            <button class="nav-toggle" aria-label="Buka menu" aria-expanded="false">
+
+            <a href="#home" class="logo">
+                Alya<span>.</span>
+            </a>
+
+            <button class="nav-toggle" id="navToggle" aria-label="Open Menu">
                 <i class="fa-solid fa-bars"></i>
             </button>
-            <div class="nav-links">
-                <a href="#skills">Keahlian</a>
-                <a href="#experience">Pengalaman</a>
-                <a href="#projects">Proyek</a>
+
+            <div class="nav-links" id="navLinks">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#experience" class="nav-link">Experience</a>
+
+                <a href="#contact" class="nav-link nav-cta">
+                    Let's Connect &rarr;
+                </a>
             </div>
+
         </div>
     </nav>
 
-    <header class="hero container">
-        <div class="profile-img">
-            <button id="profileBtn" class="profile-btn" aria-label="Lihat foto profil">
-                <img src="img/profil.jpeg" alt="Foto Profil">
-            </button>
+
+    <!-- =====================================================
+         HERO SECTION
+         ===================================================== -->
+
+    <header id="home" class="hero">
+
+        <div class="container hero-container">
+
+            <!-- HERO CONTENT -->
+            <div class="hero-content reveal">
+
+                <span class="hero-subtitle">
+                    Hi, I'm
+                </span>
+
+                <h1>
+                    Alya Wahyuning
+                    <span class="highlight">Syahbani</span>
+                </h1>
+
+                <p>
+                    A Full-Stack Developer who enjoys turning real-world
+                    needs into useful digital products.
+                </p>
+
+                <div class="btn-group">
+
+                    <a href="#projects" class="btn btn-primary">
+                        View My Projects
+                    </a>
+
+                    <a href="https://drive.google.com/file/d/1tThTZbQ6rwvaez4oycPSZ0WqF4ZFjVON/view?usp=sharing"
+                        target="_blank" class="btn btn-outline">
+                        <i class="fa-regular fa-file-pdf"></i>
+                        Download CV
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 HERO VISUAL
+                 ================================================= -->
+
+            <div class="hero-visual reveal">
+
+                <!-- Pastel wavy backdrop -->
+                <div class="hero-blob"></div>
+
+                <!-- Decorative Heart -->
+                <div class="hero-decoration dec-1">
+                    <i class="fa-regular fa-heart"></i>
+                </div>
+
+                <!-- Decorative Sparkle -->
+                <div class="hero-decoration dec-2">
+                    <i class="fa-solid fa-sparkles"></i>
+                </div>
+
+                <!-- Portrait Frame -->
+                <div class="hero-frame">
+                    <div class="hero-frame-inner">
+                        <img src="img/profil.png" alt="Alya Wahyuning Syahbani" class="hero-img">
+                    </div>
+                </div>
+
+
+            </div>
+
         </div>
-        <h1>Halo, Saya <span class="highlight">Alya Wahyuning Syahbani</span></h1>
-        <p class="subtitle">Berpengalaman mengembangkan aplikasi dan sistem dengan antarmuka bersih serta performa yang
-            andal dan efisien.</p>
-        <div class="btn-group">
-            <a href="#projects" class="btn btn-primary">Lihat Karya</a>
-            <a href="#contact" class="btn btn-outline">Hubungi Saya</a>
-        </div>
+
     </header>
 
-    <section id="projects" class="section container">
-        <h2 class="section-title">Proyek Pilihan</h2>
-        <p class="section-desc">Geser untuk melihat beberapa karya web dan antarmuka yang pernah saya buat.</p>
 
-        <div class="slider-wrapper">
-            <button class="slider-btn prev-btn" aria-label="Geser Kiri">❮</button>
+    <!-- =====================================================
+         ABOUT SECTION
+         ===================================================== -->
 
-            <div class="project-slider" id="projectSlider">
+    <section id="about" class="section section-alt">
 
-                <div class="card project-card">
-                    <img src="img/proyek/siapmaju.png" alt="SIAP MAJU" class="project-img">
-                    <div class="project-content">
-                        <h3>SIAP MAJU</h3>
-                        <p>Sistem pelaporan kerusakan lampu jalan berbasis web dengan fitur barcode scanning dan
-                            tracking status. Sistem membantu mempermudah proses pelaporan serta monitoring tindak lanjut
-                            kerusakan.</p>
-                    </div>
-                </div>
-
-                <div class="card project-card">
-                    <img src="img/proyek/admin.png" alt="Admin SIAP MAJU" class="project-img">
-                    <div class="project-content">
-                        <h3>Admin SIAP MAJU</h3>
-                        <p>Dashboard administratif untuk mengelola laporan kerusakan lampu jalan secara terpusat.
-                            Memungkinkan admin memantau, memproses, dan menindaklanjuti laporan yang masuk dari
-                            masyarakat.</p>
-                    </div>
-                </div>
-
-                <div class="card project-card">
-                    <img src="img/proyek/smartcounting.png" alt="smartcounting" class="project-img">
-                    <div class="project-content">
-                        <h3>Smartcounting CCTV Dashboard</h3>
-                        <p>Aplikasi monitoring lalu lintas berbasis CCTV yang mengintegrasikan data dari 10+ titik CCTV
-                            ke dalam dashboard terpusat. Dilengkapi analisis volume kendaraan, VCR, visualisasi data,
-                            dan pelaporan untuk mendukung monitoring operasional.</p>
-                    </div>
-                </div>
-
-                <div class="card project-card">
-                    <img src="img/proyek/kerjaku.png" alt="KerjaKU" class="project-img">
-                    <div class="project-content">
-                        <h3>KerjaKU</h3>
-                        <p>Sistem presensi dan manajemen aktivitas kerja berbasis web dengan fitur face recognition.
-                            Menyediakan dashboard terpusat untuk membantu monitoring kehadiran dan aktivitas karyawan.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="card project-card">
-                    <img src="img/proyek/medipulse.png" alt="MEDIPULSE" class="project-img">
-                    <div class="project-content">
-                        <h3>MEDIPULSE</h3>
-                        <p>Aplikasi web untuk mengelola jadwal dan pengingat konsumsi obat secara terstruktur.
-                            Dilengkapi fitur pencatatan obat, perhitungan kondisi tubuh, dan integrasi machine learning
-                            untuk mendukung analisis pengguna.</p>
-                        <a href="https://github.com/AlyaaWS/Finpro-Digisehat-Kelompok-7" target="_blank"
-                            class="project-link">
-                            Lihat GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="card project-card">
-                    <img src="img/proyek/galeri.png" alt="Landingpage Galeri Wisata" class="project-img">
-                    <div class="project-content">
-                        <h3>Landingpage Galeri Wisata</h3>
-                        <p>Website galeri wisata yang menyajikan informasi dan visual berbagai destinasi secara
-                            terstruktur. Dirancang dengan antarmuka responsif untuk memberikan pengalaman eksplorasi
-                            yang nyaman bagi pengguna.</p>
-                        <a href="https://alyaaws.github.io/Landing-Page-Galeri-Wisata/" target="_blank"
-                            class="project-link">
-                            Lihat Website <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="card project-card">
-                    <img src="img/proyek/makeup.png" alt="Make Up Katalog" class="project-img">
-                    <div class="project-content">
-                        <h3>Website Marketplace Makeup</h3>
-                        <p>Website marketplace makeup dengan fitur katalog produk, kategori, keranjang belanja, dan
-                            integrasi payment gateway. Dikembangkan untuk mendukung proses pencarian produk hingga
-                            transaksi pengguna.</p>
-                        <a href="https://github.com/AlyaaWS/website_marketplace" target="_blank" class="project-link">
-                            Lihat GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="card project-card">
-                    <img src="img/proyek/pbi.png" alt="pbi" class="project-img">
-                    <div class="project-content">
-                        <h3>Project-Based Internship Analisis Penjualan</h3>
-                        <p>Project analisis penjualan yang mengolah data dari berbagai sumber menjadi informasi dan
-                            visualisasi yang terstruktur. Menghasilkan dashboard interaktif untuk menganalisis performa
-                            penjualan dan mendukung pengambilan keputusan berbasis data.</p>
-                        <a href="https://github.com/AlyaaWS/Data-Master-PBI" target="_blank" class="project-link">
-                            Lihat GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="card project-card">
-                    <img src="img/proyek/nunacraft.png" alt="Nuna Craft" class="project-img">
-                    <div class="project-content">
-                        <h3>NunaCraft</h3>
-                        <p>Website katalog produk bucket bunga yang menampilkan koleksi dan informasi produk secara
-                            visual dan terstruktur. Dirancang untuk memudahkan pengguna mengeksplorasi berbagai pilihan
-                            produk.</p>
-                        <a href="https://github.com/AlyaaWS/NunaCraft" target="_blank" class="project-link">
-                            Lihat GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="card project-card">
-                    <img src="img/proyek/haidtracker.png" alt="Haid Tracker" class="project-img">
-                    <div class="project-content">
-                        <h3>Haid Tracker</h3>
-                        <p>Aplikasi web untuk mencatat dan memantau siklus menstruasi serta riwayat gejala pengguna.
-                            Membantu pengguna melihat dan memahami pola siklus secara lebih terstruktur.</p>
-                    </div>
-                </div>
-
-            </div>
-
-            <button class="slider-btn next-btn" aria-label="Geser Kanan">❯</button>
-        </div>
-    </section>
-
-    <section id="skills" class="section container">
-        <h2 class="section-title">Keahlian & Tools</h2>
-        <p class="section-desc">Teknologi, framework, dan perangkat yang saya gunakan untuk membangun aplikasi.</p>
-
-        <div class="grid-3">
-            <div class="card">
-                <h3>⚙️ Backend & Database</h3>
-                <div class="tags">
-                    <span class="tag">PHP</span>
-                    <span class="tag">Laravel</span>
-                    <span class="tag">CodeIgniter (CI)</span>
-                    <span class="tag">MySQL</span>
-                    <span class="tag">RESTful API</span>
-                    <span class="tag">Docker</span>
-                    <span class="tag">CI/CD</span>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3>💻 Frontend</h3>
-                <div class="tags">
-                    <span class="tag">JavaScript</span>
-                    <span class="tag">Blade Template</span>
-                    <span class="tag">Bootstrap</span>
-                    <span class="tag">Basic Tailwind</span>
-                    <span class="tag">HTML5 & CSS3</span>
-                    <span class="tag">React.js</span>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3>🎨 Tools & Desain</h3>
-                <div class="tags">
-                    <span class="tag">VS Code</span>
-                    <span class="tag">Git</span>
-                    <span class="tag">GitHub</span>
-                    <span class="tag">Figma</span>
-                </div>
-            </div>
-        </div>
-        <div class="tech-slider">
-            <div class="tech-track">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" alt="PHP"
-                    title="PHP">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg"
-                    alt="Laravel" title="Laravel">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg"
-                    alt="Bootstrap" title="Bootstrap">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg"
-                    alt="Figma" title="Figma">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original-wordmark.svg"
-                    alt="MySQL" title="MySQL">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
-                    alt="JavaScript" title="JavaScript">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="Git"
-                    title="Git">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg"
-                    class="github-icon" alt="GitHub" title="GitHub">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg"
-                    alt="VS Code" title="VS Code">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg"
-                    alt="Tailwind CSS" title="Tailwind CSS">
-
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" alt="PHP">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg"
-                    alt="Laravel">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg"
-                    alt="Bootstrap">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg"
-                    alt="Figma">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original-wordmark.svg"
-                    alt="MySQL">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
-                    alt="JavaScript">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="Git">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg"
-                    class="github-icon" alt="GitHub">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg"
-                    alt="VS Code">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg"
-                    alt="Tailwind CSS">
-            </div>
-        </div>
-    </section>
-
-    <section id="experience" class="section container">
-        <h2 class="section-title">💼 Pengalaman</h2>
-
-        <div class="grid-2">
-
-            <div class="timeline">
-                <div class="timeline-item">
-                    <h4>Freelance Web Developer</h4>
-                    <p class="timeline-date">Dishub Sleman • 2026</p>
-                    <p class="timeline-desc">
-                        Sistem pelaporan PJU dengan fitur scan & tracking.
-                    </p>
-                </div>
-
-                <div class="timeline-item">
-                    <h4>Fullstack Web Developer Intern</h4>
-                    <p class="timeline-date">PT Winnicode • 2025</p>
-                    <p class="timeline-desc">
-                        Pengembangan & maintenance aplikasi web.
-                    </p>
-                </div>
-
-                <div class="timeline-item">
-                    <h4>MSIB Kampus Merdeka Fullstack Developer & Machine Learning</h4>
-                    <p class="timeline-date">Rakamin • 2024</p>
-                    <p class="timeline-desc">
-                        Membangun aplikasi web berbasis tim.
-                    </p>
-                </div>
-            </div>
-
-            <div class="timeline">
-                <div class="timeline-item">
-                    <h4>Asisten Praktikum</h4>
-                    <p class="timeline-date">AMIKOM • 2023 - Sekarang</p>
-                    <p class="timeline-desc">
-                        Membantu dosen dalam kelas praktikum.
-                    </p>
-                </div>
-
-                <div class="timeline-item">
-                    <h4>BI Analyst (Project-Based)</h4>
-                    <p class="timeline-date">Bank Muamalat x Rakamin • 2025</p>
-                    <p class="timeline-desc">
-                        Analisis data & dashboard penjualan.
-                    </p>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <footer id="contact" class="footer">
         <div class="container">
-            <h2>Mari Berkolaborasi!</h2>
-            <p>Terbuka untuk peluang kerja dan kolaborasi. Jangan ragu untuk menghubungi saya untuk diskusi lebih
-                lanjut.</p>
-            <a href="mailto:alyawahyuning93@gmail.com" class="btn btn-primary mt-4">✉️ Kirim Pesan Email</a>
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/alya-wahyuning-syahbani-107b14331?utm_source=share_via&utm_content=profile&utm_medium=member_android"
-                    class="social-btn"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-                <a href="https://github.com/AlyaaWS" class="social-btn"><i class="fa-brands fa-github"></i> GitHub</a>
-                <a href="https://drive.google.com/file/d/10MeVB08V4Jf7Jd1cMVMapf02lzTz4Ebo/view?usp=sharing"
-                    class="social-btn"><i class="fa-solid fa-envelope"></i>
-                    CV</a>
+
+            <div class="section-header reveal">
+
+                <h2 class="section-title">
+                    About Me
+                </h2>
+
+                <p class="section-desc">
+                    A little background on who I am and how I work.
+                </p>
+
             </div>
-            <p class="copyright">&copy; 2026 Alya WS</p>
+
+
+            <div class="about-grid">
+
+                <div class="about-text reveal">
+
+                    <p>
+                        I am an Information Systems graduate with a passion for building digital products that make
+                        everyday processes simpler and more useful. My experience in web development has taught me to
+                        look beyond the code—to understand the problem, collaborate with others, and turn ideas into
+                        practical solutions.
+                    </p>
+
+                    <p>
+                        Through my projects, I have learned to approach development through experimentation and
+                        continuous learning. I enjoy exploring new technologies, improving my technical skills, and
+                        finding better ways to create products that are meaningful to their users.
+                    </p>
+
+                </div>
+
+
+                <div class="strengths-grid reveal">
+
+                    <div class="strength-card">
+
+                        <div class="strength-icon">
+                            <i class="fa-solid fa-puzzle-piece"></i>
+                        </div>
+
+                        <h4>
+                            Problem Solver
+                        </h4>
+
+                    </div>
+
+
+                    <div class="strength-card">
+
+                        <div class="strength-icon">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+
+                        <h4>
+                            Team Player
+                        </h4>
+
+                    </div>
+
+
+                    <div class="strength-card">
+
+                        <div class="strength-icon">
+                            <i class="fa-solid fa-book-open-reader"></i>
+                        </div>
+
+                        <h4>
+                            Continuous Learner
+                        </h4>
+
+                    </div>
+
+
+                    <div class="strength-card">
+
+                        <div class="strength-icon">
+                            <i class="fa-regular fa-face-smile"></i>
+                        </div>
+
+                        <h4>
+                            User-Focused
+                        </h4>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
         </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         PROJECTS SECTION
+         ===================================================== -->
+
+    <section id="projects" class="section">
+
+        <div class="container">
+
+            <div class="section-header reveal">
+
+                <h2 class="section-title">
+                    Featured Projects
+                </h2>
+
+                <p class="section-desc">
+                    A selection of my recent full-stack development
+                    and data projects.
+                </p>
+
+            </div>
+
+
+            <div class="projects-grid">
+
+
+                <!-- Project 1 -->
+                <div class="project-card reveal">
+
+                    <div class="project-img-wrapper">
+
+                        <img src="img/proyek/siapmaju.png" alt="SIAP MAJU" class="project-img">
+
+
+                    </div>
+
+
+                    <div class="project-content">
+
+                        <div class="project-meta">
+
+                            <span class="project-type">
+                                Work Assignment
+                            </span>
+
+                            <span class="project-year">
+                                2026
+                            </span>
+
+                        </div>
+
+
+                        <h3 class="project-title">
+                            SIAP MAJU
+                        </h3>
+
+
+                        <p class="project-desc">
+                            A web-based street lighting damage reporting
+                            system with barcode scanning and real-time tracking.
+                        </p>
+
+
+                        <div class="project-tech">
+
+                            <span class="tech-tag">
+                                PHP
+                            </span>
+
+                            <span class="tech-tag">
+                                MySQL
+                            </span>
+
+                            <span class="tech-tag">
+                                Bootstrap
+                            </span>
+
+                            <span class="tech-tag">
+                                JavaScript
+                            </span>
+
+                            <span class="tech-tag">
+                                Chart.js
+                            </span>
+
+                        </div>
+
+
+                        <a href="siap-maju.html" class="project-link">
+                            View Case Study
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Project: Admin SIAP MAJU -->
+                <div class="project-card reveal">
+
+                    <div class="project-img-wrapper">
+
+                        <img src="img/proyek/admin.png" alt="Admin SIAP MAJU Dashboard" class="project-img">
+
+
+                    </div>
+
+
+                    <div class="project-content">
+
+                        <div class="project-meta">
+
+                            <span class="project-type">
+                                Work Assignment
+                            </span>
+
+                            <span class="project-year">
+                                2026
+                            </span>
+
+                        </div>
+
+
+                        <h3 class="project-title">
+                            Admin Dashboard - SIAP MAJU
+                        </h3>
+
+
+                        <p class="project-desc">
+                            An administrative dashboard for managing street lighting assets, monitoring public reports,
+                            and supporting field operations.
+                        </p>
+
+
+                        <div class="project-tech">
+
+                            <span class="tech-tag">
+                                PHP
+                            </span>
+
+                            <span class="tech-tag">
+                                MySQL
+                            </span>
+
+                            <span class="tech-tag">
+                                Bootstrap
+                            </span>
+
+                            <span class="tech-tag">
+                                JavaScript
+                            </span>
+
+                            <span class="tech-tag">
+                                Chart.js
+                            </span>
+
+                        </div>
+
+
+                        <a href="admin.html" class="project-link">
+                            View Case Study
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Project 2 -->
+                <div class="project-card reveal">
+
+                    <div class="project-img-wrapper">
+
+                        <img src="img/proyek/smartcounting.png" alt="Smartcounting CCTV Dashboard" class="project-img">
+
+
+                    </div>
+
+
+                    <div class="project-content">
+
+                        <div class="project-meta">
+
+                            <span class="project-type">
+                                Work Assignment
+                            </span>
+
+                            <span class="project-year">
+                                2026
+                            </span>
+
+                        </div>
+
+
+                        <h3 class="project-title">
+                            Smartcounting CCTV
+                        </h3>
+
+
+                        <p class="project-desc">
+                            Traffic monitoring dashboard integrating data
+                            from 10+ CCTV points for volume analysis and reporting.
+                        </p>
+
+
+                        <div class="project-tech">
+
+                            <span class="tech-tag">
+                                PHP
+                            </span>
+
+                            <span class="tech-tag">
+                                MySQL
+                            </span>
+
+                            <span class="tech-tag">
+                                Bootstrap
+                            </span>
+
+                            <span class="tech-tag">
+                                JavaScript
+                            </span>
+
+                            <span class="tech-tag">
+                                Chart.js
+                            </span>
+
+                        </div>
+
+
+                        <a href="smartcounting.html" class="project-link">
+                            View Case Study
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Project 3 -->
+                <div class="project-card reveal">
+
+                    <div class="project-img-wrapper">
+
+                        <img src="img/proyek/kerjaku.png" alt="KerjaKU" class="project-img">
+
+
+                    </div>
+
+
+                    <div class="project-content">
+
+                        <div class="project-meta">
+
+                            <span class="project-type">
+                                Work Assignment
+                            </span>
+
+                            <span class="project-year">
+                                2025
+                            </span>
+
+                        </div>
+
+
+                        <h3 class="project-title">
+                            KerjaKU
+                        </h3>
+
+
+                        <p class="project-desc">
+                            Attendance and work activity management system
+                            utilizing face recognition technology.
+                        </p>
+
+
+                        <div class="project-tech">
+
+                            <span class="tech-tag">
+                                Laravel
+                            </span>
+
+                            <span class="tech-tag">
+                                PHP
+                            </span>
+
+                            <span class="tech-tag">
+                                MySQL
+                            </span>
+
+                            <span class="tech-tag">
+                                Face Recognition API
+                            </span>
+
+                            <span class="tech-tag">
+                                JavaScript
+                            </span>
+
+
+
+                        </div>
+
+
+                        <a href="kerjaku.html" class="project-link">
+                            View Case Study
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Project 4 -->
+                <div class="project-card reveal">
+
+                    <div class="project-img-wrapper">
+
+                        <img src="img/proyek/medipulse.png" alt="MEDIPULSE" class="project-img">
+
+
+                    </div>
+
+
+                    <div class="project-content">
+
+                        <div class="project-meta">
+
+                            <span class="project-type">
+                                Class Assignment
+                            </span>
+
+                            <span class="project-year">
+                                2024
+                            </span>
+
+                        </div>
+
+
+                        <h3 class="project-title">
+                            MEDIPULSE
+                        </h3>
+
+
+                        <p class="project-desc">
+                            Web application for managing medication schedules,
+                            integrated with machine learning for health
+                            condition analysis.
+                        </p>
+
+
+                        <div class="project-tech">
+
+                            <span class="tech-tag">
+                                FastAPI
+                            </span>
+
+                            <span class="tech-tag">
+                                React
+                            </span>
+
+                            <span class="tech-tag">
+                                PostgreSQL
+                            </span>
+
+                        </div>
+
+
+                        <a href="medipulse.html" class="project-link">
+                            View Case Study
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- HIDDEN PROJECTS START
+                <!~~ Project 5 ~~>
+                <div class="project-card reveal">
+
+                    <div class="project-img-wrapper">
+
+                        <img src="img/proyek/pbi.png" alt="Sales Analysis Dashboard" class="project-img">
+
+
+                    </div>
+
+
+                    <div class="project-content">
+
+                        <div class="project-meta">
+
+                            <span class="project-type">
+                                Class Project
+                            </span>
+
+                            <span class="project-year">
+                                2025
+                            </span>
+
+                        </div>
+
+
+                        <h3 class="project-title">
+                            Sales Analysis Dashboard
+                        </h3>
+
+
+                        <p class="project-desc">
+                            Data processing and visualization project resulting
+                            in an interactive dashboard to support data-driven
+                            decisions.
+                        </p>
+
+
+                        <div class="project-tech">
+
+                            <span class="tech-tag">
+                                SQL
+                            </span>
+
+                            <span class="tech-tag">
+                                Looker Studio
+                            </span>
+
+                            <span class="tech-tag">
+                                Excel
+                            </span>
+
+                        </div>
+
+
+                        <a href="pbi-analysis.html" class="project-link">
+                            View Case Study
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!~~ Project 6 ~~>
+                <div class="project-card reveal">
+
+                    <div class="project-img-wrapper">
+
+                        <img src="img/proyek/makeup.png" alt="Makeup Marketplace" class="project-img">
+
+
+                    </div>
+
+
+                    <div class="project-content">
+
+                        <div class="project-meta">
+
+                            <span class="project-type">
+                                Class Project
+                            </span>
+
+                            <span class="project-year">
+                                2023
+                            </span>
+
+                        </div>
+
+
+                        <h3 class="project-title">
+                            Makeup Marketplace
+                        </h3>
+
+
+                        <p class="project-desc">
+                            E-commerce platform featuring product catalogs,
+                            shopping cart, and payment gateway integration.
+                        </p>
+
+
+                        <div class="project-tech">
+
+                            <span class="tech-tag">
+                                CodeIgniter
+                            </span>
+
+                            <span class="tech-tag">
+                                Midtrans
+                            </span>
+
+                            <span class="tech-tag">
+                                MySQL
+                            </span>
+
+                        </div>
+
+
+                        <a href="makeup-marketplace.html" class="project-link">
+                            View Case Study
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <!~~ Project 7 ~~>
+                <div class="project-card reveal">
+                    <div class="project-img-wrapper">
+                        <img src="img/proyek/galeri.png" alt="Galeri Wisata" class="project-img">
+
+                    </div>
+                    <div class="project-content">
+                        <div class="project-meta">
+                            <span class="project-type">Web Development</span>
+                            <span class="project-year">2023</span>
+                        </div>
+                        <h3 class="project-title">Galeri Wisata</h3>
+                        <p class="project-desc">A photo gallery website showcasing various tourist destinations with an
+                            interactive UI.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                        <a href="galeri-wisata.html" class="project-link">View Case Study<i
+                                class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!~~ Project 8 ~~>
+                <div class="project-card reveal">
+                    <div class="project-img-wrapper">
+                        <img src="img/proyek/haidtracker.png" alt="Haidtracker" class="project-img">
+
+                    </div>
+                    <div class="project-content">
+                        <div class="project-meta">
+                            <span class="project-type">Web Application</span>
+                            <span class="project-year">2024</span>
+                        </div>
+                        <h3 class="project-title">Haidtracker</h3>
+                        <p class="project-desc">A menstruation tracker web application to help users log and predict
+                            their cycles.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">PHP</span>
+                            <span class="tech-tag">MySQL</span>
+                        </div>
+                        <a href="haidtracker.html" class="project-link">View Case Study<i
+                                class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+
+
+                HIDDEN PROJECTS END -->
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         SKILLS SECTION
+         ===================================================== -->
+
+    <section id="skills" class="section section-alt">
+
+        <div class="container">
+
+            <div class="section-header reveal">
+
+                <h2 class="section-title">
+                    Skills & Tools
+                </h2>
+
+                <p class="section-desc">
+                    Technologies and tools I use to build digital solutions.
+                </p>
+
+            </div>
+
+
+            <div class="skills-grid reveal">
+
+
+                <!-- Frontend -->
+                <div class="skill-category">
+
+                    <h3>
+                        <i class="fa-solid fa-layer-group"></i>
+                        Frontend
+                    </h3>
+
+                    <div class="skill-list">
+
+                        <span class="skill-item">
+                            HTML5 & CSS3
+                        </span>
+
+                        <span class="skill-item">
+                            JavaScript
+                        </span>
+
+                        <span class="skill-item">
+                            React.js
+                        </span>
+
+                        <span class="skill-item">
+                            Bootstrap
+                        </span>
+
+                        <span class="skill-item">
+                            Blade
+                        </span>
+
+                        <span class="skill-item">
+                            Chart.js
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Backend -->
+                <div class="skill-category">
+
+                    <h3>
+                        <i class="fa-solid fa-server"></i>
+                        Backend
+                    </h3>
+
+                    <div class="skill-list">
+
+                        <span class="skill-item">
+                            PHP
+                        </span>
+
+                        <span class="skill-item">
+                            Laravel
+                        </span>
+
+                        <span class="skill-item">
+                            CodeIgniter 3
+                        </span>
+
+                        <span class="skill-item">
+                            RESTful API
+                        </span>
+
+                        <span class="skill-item">
+                            FastAPI
+                        </span>
+
+                        <span class="skill-item">
+                            OAuth2
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Database -->
+                <div class="skill-category">
+
+                    <h3>
+                        <i class="fa-solid fa-database"></i>
+                        Database
+                    </h3>
+
+                    <div class="skill-list">
+
+                        <span class="skill-item">
+                            MySQL
+                        </span>
+
+                        <span class="skill-item">
+                            PostgreSQL
+                        </span>
+
+                        <span class="skill-item">
+                            SQLite
+                        </span>
+
+                        <span class="skill-item">
+                            SQL Server
+                        </span>
+
+                        <span class="skill-item">
+                            Database Design
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Data & Visualization -->
+                <div class="skill-category">
+
+                    <h3>
+                        <i class="fa-solid fa-chart-pie"></i>
+                        Data & Visualization
+                    </h3>
+
+                    <div class="skill-list">
+
+                        <span class="skill-item">
+                            SQL
+                        </span>
+
+                        <span class="skill-item">
+                            Google BigQuery
+                        </span>
+
+                        <span class="skill-item">
+                            Looker Studio
+                        </span>
+
+                        <span class="skill-item">
+                            Excel
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Tools & Design -->
+                <div class="skill-category">
+
+                    <h3>
+                        <i class="fa-solid fa-pen-ruler"></i>
+                        Tools & Design
+                    </h3>
+
+                    <div class="skill-list">
+
+                        <span class="skill-item">
+                            Git
+                        </span>
+
+                        <span class="skill-item">
+                            GitHub
+                        </span>
+
+                        <span class="skill-item">
+                            Figma
+                        </span>
+
+                        <span class="skill-item">
+                            UI Design
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         EXPERIENCE SECTION
+         ===================================================== -->
+
+    <section id="experience" class="section">
+
+        <div class="container">
+
+            <div class="section-header reveal">
+
+                <h2 class="section-title">
+                    Experience
+                </h2>
+
+                <p class="section-desc">
+                    My professional journey and academic involvement.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-container reveal">
+
+                <div class="timeline">
+
+
+                    <!-- Experience 1 -->
+                    <div class="timeline-item">
+
+                        <div class="timeline-dot"></div>
+
+                        <div class="timeline-content">
+
+                            <div class="timeline-date">
+                                2026
+                            </div>
+
+                            <h3 class="timeline-title">
+                                Freelance Full Stack Web Developer
+                            </h3>
+
+                            <div class="timeline-company">
+                                Transportation Department of Sleman
+                            </div>
+
+                            <p class="timeline-desc">
+                                Developed SIAP MAJU, a street lighting damage
+                                reporting system featuring barcode scanning
+                                and end-to-end tracking, enabling easier
+                                public reporting and better administrative
+                                monitoring.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Experience: Admin SIAP MAJU -->
+                    <div class="timeline-item">
+
+                        <div class="timeline-dot"></div>
+
+                        <div class="timeline-content">
+
+                            <div class="timeline-date">
+                                2026
+                            </div>
+
+                            <h3 class="timeline-title">
+                                Admin Dashboard Developer - SIAP MAJU
+                            </h3>
+
+                            <div class="timeline-company">
+                                Transportation Department of Sleman
+                            </div>
+
+                            <p class="timeline-desc">
+                                Developed the centralized administrative dashboard for the SIAP MAJU reporting system.
+                                Implemented real-time report tracking, technician assignments, and secure data
+                                management interfaces.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Experience 2 -->
+                    <div class="timeline-item">
+
+                        <div class="timeline-dot"></div>
+
+                        <div class="timeline-content">
+
+                            <div class="timeline-date">
+                                2025
+                            </div>
+
+                            <h3 class="timeline-title">
+                                Project-Based Business Intelligence Internship
+                            </h3>
+
+                            <div class="timeline-company">
+                                Bank Muamalat x Rakamin
+                            </div>
+
+                            <p class="timeline-desc">
+                                Analyzed complex sales data from multiple
+                                sources and designed interactive dashboards
+                                to support data-driven decision making
+                                processes.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Experience 3 -->
+                    <div class="timeline-item">
+
+                        <div class="timeline-dot"></div>
+
+                        <div class="timeline-content">
+
+                            <div class="timeline-date">
+                                2025
+                            </div>
+
+                            <h3 class="timeline-title">
+                                Full Stack Developer Intern
+                            </h3>
+
+                            <div class="timeline-company">
+                                PT Winnicode
+                            </div>
+
+                            <p class="timeline-desc">
+                                Contributed to the development and maintenance
+                                of company web applications, focusing on
+                                scalable architecture and clean code practices.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Experience 4 -->
+                    <div class="timeline-item">
+
+                        <div class="timeline-dot"></div>
+
+                        <div class="timeline-content">
+
+                            <div class="timeline-date">
+                                2024
+                            </div>
+
+                            <h3 class="timeline-title">
+                                Backend Developer (Independent Study Program)
+                            </h3>
+
+                            <div class="timeline-company">
+                                Rakamin Academy
+                            </div>
+
+                            <p class="timeline-desc">
+                                Collaborated in cross-functional teams to
+                                build robust web applications, integrating
+                                machine learning models via RESTful APIs.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Experience 5 -->
+                    <div class="timeline-item">
+
+                        <div class="timeline-dot"></div>
+
+                        <div class="timeline-content">
+
+                            <div class="timeline-date">
+                                2023 - Present
+                            </div>
+
+                            <h3 class="timeline-title">
+                                Teaching Assistant
+                            </h3>
+
+                            <div class="timeline-company">
+                                AMIKOM Yogyakarta
+                            </div>
+
+                            <p class="timeline-desc">
+                                Assisting professors in practical classes,
+                                helping students understand programming
+                                concepts, and evaluating practical assignments.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CONTACT SECTION
+         ===================================================== -->
+
+    <section id="contact" class="contact-section">
+
+        <div class="container">
+
+            <div class="contact-box reveal">
+
+                <div class="contact-content">
+
+                    <h2>
+                        Let's Build Something Useful.
+                    </h2>
+
+                    <p>
+                        I'm always open to discussing new opportunities,
+                        creative projects, or sharing ideas.
+                    </p>
+
+
+                    <a href="mailto:alyawahyuning93@gmail.com" class="btn btn-primary"
+                        style="background-color: var(--text-primary);">
+                        Say Hello
+                    </a>
+
+
+                    <div class="social-links">
+
+                        <a href="https://www.linkedin.com/in/alya-wahyuning-syahbani-107b14331?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+                            class="social-icon" aria-label="LinkedIn" target="_blank">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+
+
+                        <a href="https://github.com/AlyaaWS" class="social-icon" aria-label="GitHub" target="_blank">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+
+
+                        <a href="https://drive.google.com/file/d/1tThTZbQ6rwvaez4oycPSZ0WqF4ZFjVON/view?usp=sharing"
+                            class="social-icon" aria-label="Resume" target="_blank">
+                            <i class="fa-solid fa-file-pdf"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <div class="container">
+
+            <p>
+                &copy; 2026 Alya Wahyuning Syahbani.
+            </p>
+
+        </div>
+
     </footer>
 
-    <div id="imgModal" class="img-modal" aria-hidden="true">
-        <div class="img-modal-content" role="dialog" aria-modal="true">
-            <button class="img-modal-close" aria-label="Tutup">&times;</button>
-            <img id="modalImg" src="img/profil.jpeg" alt="Foto Profil Besar">
-        </div>
-    </div>
 
-    <button id="backToTop" class="back-to-top" aria-label="Kembali ke atas">
-        <i class="fa-solid fa-arrow-up"></i>
-    </button>
-
+    <!-- Custom JS -->
     <script src="script.js"></script>
 
 </body>
