@@ -122,4 +122,32 @@ document.addEventListener('DOMContentLoaded', () => {
             slideTimer = setInterval(autoSlide, 2000);
         }, {passive: true});
     }
+
+    // 6. Back to Top Button
+    let backToTopBtn = document.getElementById('backToTop');
+    if (!backToTopBtn) {
+        backToTopBtn = document.createElement('a');
+        backToTopBtn.id = 'backToTop';
+        backToTopBtn.className = 'back-to-top';
+        backToTopBtn.setAttribute('href', '#');
+        backToTopBtn.setAttribute('aria-label', 'Back to Top');
+        backToTopBtn.innerHTML = '<i class="fa-solid fa-arrow-up"></i>';
+        document.body.appendChild(backToTopBtn);
+    }
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backToTopBtn.classList.add('show');
+        } else {
+            backToTopBtn.classList.remove('show');
+        }
+    });
+
+    backToTopBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
 });

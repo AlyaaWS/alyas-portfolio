@@ -116,11 +116,11 @@ a {
 
 .container {
 
-  max-width: 1100px;
+  max-width: 1140px;
 
   margin: 0 auto;
 
-  padding: 0 24px;
+  padding: 0 28px;
 }
 
 
@@ -382,8 +382,7 @@ a {
 
 .hero {
   position: relative;
-  padding: 120px 0 70px;
-  /* Jarak atas disesuaikan, karena min-height dihapus jarak ini sekarang akurat */
+  padding: 130px 0 70px;
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -395,7 +394,7 @@ a {
   display: grid;
 
   grid-template-columns:
-    1fr 0.9fr;
+    1.15fr 0.85fr;
 
   align-items: center;
 
@@ -409,7 +408,7 @@ a {
 
 .hero-content {
 
-  max-width: 650px;
+  max-width: 580px;
 
   position: relative;
 
@@ -446,13 +445,13 @@ a {
   font-family: var(--font-heading);
 
   font-size:
-    clamp(3.5rem, 5vw, 5rem);
+    clamp(3.2rem, 4.8vw, 4.8rem);
 
-  line-height: 0.98;
+  line-height: 1.05;
 
   font-weight: 400;
 
-  letter-spacing: -1.5px;
+  letter-spacing: -1.2px;
 
   color: var(--text-primary);
 }
@@ -460,13 +459,13 @@ a {
 
 .hero h1 .highlight {
 
-  color: var(--text-primary);
+  color: var(--primary);
 }
 
 
 .hero p {
 
-  max-width: 590px;
+  max-width: 540px;
 
   margin-bottom: 38px;
 
@@ -488,11 +487,19 @@ a {
 
   position: relative;
 
-  width: 540px;
+  width: 100%;
 
-  height: 560px;
+  max-width: 440px;
 
-  justify-self: end;
+  height: 480px;
+
+  justify-self: center;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
 
   z-index: 3;
 }
@@ -507,14 +514,12 @@ a {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 320px;
+  width: 310px;
   height: 330px;
-  /* Tinggi frame diperkecil */
   border-radius: 30px;
-  border: 10px solid var(--primary);
-  /* Border ditipiskan */
+  border: 9px solid var(--primary);
   background-color: #F8EDF3;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 20px 40px rgba(135, 116, 150, 0.1);
   z-index: 2;
 }
 
@@ -535,7 +540,6 @@ a {
   max-width: none;
   border-bottom-right-radius: 20px;
   border-bottom-left-radius: 20px;
-  /* Di CSS kanan bawah, tapi karena di-flip (scaleX(-1)), munculnya di kiri bawah! Radius 20px pas dengan inner frame */
   filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.1));
 }
 
@@ -544,14 +548,12 @@ a {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 85%;
-  /* Background gelombang diperkecil */
-  height: 85%;
-  /* Background gelombang diperkecil */
+  width: 95%;
+  height: 95%;
   background: linear-gradient(135deg, var(--accent-pink), var(--accent-lavender));
   border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
   animation: morph 8s ease-in-out infinite;
-  opacity: 0.8;
+  opacity: 0.85;
   z-index: 0;
 }
 
@@ -569,14 +571,14 @@ a {
 }
 
 .hero-decoration.dec-1 {
-  top: 40px;
-  left: 30px;
+  top: 35px;
+  left: 15px;
   transform: rotate(-15deg);
 }
 
 .hero-decoration.dec-2 {
   top: 50%;
-  right: -30px;
+  right: 15px;
   font-size: 1.35rem;
   animation-delay: 1.5s;
 }
@@ -1452,6 +1454,49 @@ footer p {
 
 
 /* =========================================================
+   BACK TO TOP BUTTON
+   ========================================================= */
+
+.back-to-top {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  box-shadow: 0 8px 24px rgba(217, 167, 186, 0.4);
+  cursor: pointer;
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px) scale(0.9);
+  transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+  text-decoration: none;
+  border: none;
+  outline: none;
+}
+
+.back-to-top:hover {
+  background: var(--primary-hover);
+  color: #ffffff;
+  transform: translateY(-4px) scale(1.06);
+  box-shadow: 0 12px 28px rgba(217, 167, 186, 0.5);
+}
+
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+
+/* =========================================================
    REVEAL ANIMATION
    ========================================================= */
 
@@ -1485,25 +1530,27 @@ footer p {
   .hero-container {
 
     grid-template-columns:
-      1fr 0.85fr;
+      1fr 1fr;
 
-    gap: 10px;
+    gap: 30px;
   }
 
 
   .hero-visual {
 
-    width: 470px;
+    width: 100%;
 
-    height: 520px;
+    max-width: 400px;
+
+    height: 440px;
   }
 
 
   .hero-frame {
 
-    width: 290px;
+    width: 280px;
 
-    height: 350px;
+    height: 300px;
   }
 }
 
@@ -1532,7 +1579,7 @@ footer p {
 
     text-align: center;
 
-    gap: 10px;
+    gap: 24px;
   }
 
 
@@ -1551,9 +1598,9 @@ footer p {
   .hero h1 {
 
     font-size:
-      clamp(3rem,
-        8vw,
-        4.5rem);
+      clamp(2.8rem,
+        7vw,
+        4.2rem);
   }
 
 
@@ -1567,9 +1614,11 @@ footer p {
 
   .hero-visual {
 
-    width: 440px;
+    width: 100%;
 
-    height: 500px;
+    max-width: 380px;
+
+    height: 420px;
 
     margin:
       0 auto 15px;
@@ -1580,9 +1629,9 @@ footer p {
 
   .hero-frame {
 
-    width: 290px;
+    width: 270px;
 
-    height: 350px;
+    height: 290px;
   }
 
 
@@ -1657,9 +1706,11 @@ footer p {
 
   .hero-visual {
 
-    width: 360px;
+    width: 100%;
 
-    height: 430px;
+    max-width: 330px;
+
+    height: 370px;
 
     margin-bottom: 0;
   }
@@ -1667,9 +1718,9 @@ footer p {
 
   .hero-frame {
 
-    width: 260px;
+    width: 250px;
 
-    height: 310px;
+    height: 270px;
   }
 
 
@@ -1785,17 +1836,19 @@ footer p {
 
   .hero-visual {
 
-    width: 320px;
+    width: 100%;
 
-    height: 390px;
+    max-width: 290px;
+
+    height: 330px;
   }
 
 
   .hero-frame {
 
-    width: 230px;
+    width: 220px;
 
-    height: 280px;
+    height: 240px;
   }
 }
 
