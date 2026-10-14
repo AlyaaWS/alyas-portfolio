@@ -167,6 +167,15 @@
     display: block;
 }
 
+.visual-item.natural-ratio img,
+.visual-item.natural-ratio video,
+.visual-item img.natural-ratio {
+    width: 100%;
+    height: auto;
+    aspect-ratio: auto;
+    object-fit: contain;
+}
+
 .visual-caption {
     padding: 16px 24px;
     font-size: 0.9rem;
